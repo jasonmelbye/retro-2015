@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3 class="text-center">Missing a game? Make it available for votes <a href="/add">here</a></h3>
+
+<div>
+  <table class="table table-hover">
+    <caption class="well text-center"><h3>Current Standings</h3></caption>
+    <thead>
+      <tr>
+	<th>Votes</th>
+	<th>Game</th>
+	<th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for game in games %}
+      <tr>
+	<td>{{ game.votes }}</td>
+	<td>{{ game.name  }}</td>
+	<td class="text-right"><a href="/vote?name={{ game.name }}" class="btn btn-primary" role="button">Vote!</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
